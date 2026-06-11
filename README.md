@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# svaLekha
+
+svaLekha (स्वलेखा, "personal ledger") is a modern personal finance platform designed to help individuals understand and improve their financial habits.
+
+Track expenses and income, organize transactions using categories and tags, set budgets, monitor savings, and gain actionable insights through powerful analytics and reporting.
 
 ## Getting Started
 
