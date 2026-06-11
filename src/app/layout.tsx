@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono, Inter, Roboto_Slab } from "next/font/google";
 import { cn } from "~/lib/utils";
 import "./globals.css";
+import { ThemeProvider } from "~/integrations/themes/theme-provider";
 
 const robotoSlabHeading = Roboto_Slab({
   subsets:['latin'],
@@ -32,8 +33,18 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(inter.variable, robotoSlabHeading.variable, geistMono.variable)}
+      suppressHydrationWarning
     >
-      <body>{children}</body>
+      <body>
+        <ThemeProvider
+        attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+        >
+        {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
