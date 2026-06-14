@@ -1,12 +1,8 @@
 {
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "always"
-    },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
 
-    "cSpell.words": [
-        "hugeicons",
-        "Lekha",
-        "svalekha",
-        "स्वलेखा"
-    ]
+  "cSpell.words": ["hugeicons", "Lekha", "mjsx", "mtsx", "svalekha", "स्वलेखा"],
+  "js/ts.tsdk.path": "node_modules/typescript/lib"
 }
