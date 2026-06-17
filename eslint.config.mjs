@@ -49,7 +49,7 @@ const eslintConfig = defineConfig([
             "import/newline-after-import": "error",
             "import/no-commonjs": "error",
             "import/no-duplicates": "error"
-            
+
         }
 
     },
