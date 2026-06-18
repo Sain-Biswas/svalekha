@@ -10,5 +10,8 @@ export default {
         "cva",
         "cn",
         "clsx"
-    ]
+    ],
+
+    experimentalTernaries: true,
+    singleAttributePerLine: true
 };

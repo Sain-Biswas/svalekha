@@ -48,8 +48,9 @@ const eslintConfig = defineConfig([
             "import/first": "error",
             "import/newline-after-import": "error",
             "import/no-commonjs": "error",
-            "import/no-duplicates": "error"
+            "import/no-duplicates": "error",
 
+            "@stylistic/newline-per-chained-call": ["error", { ignoreChainWithDepth: 2 }]
         }
 
     },
