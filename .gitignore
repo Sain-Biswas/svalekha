@@ -58,6 +58,9 @@ next-env.d.ts
 # operating system files
 .DS_Store
 
+# database
+*.db
+
 # security & certificates
 *.pem
 
