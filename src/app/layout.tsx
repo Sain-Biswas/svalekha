@@ -4,6 +4,7 @@ import { cn } from "~/lib/utils";
 import "./globals.css";
 import { ThemeProvider } from "~/integrations/themes/theme-provider";
 import { TooltipProvider } from "~/shadcn/ui/tooltip";
+import { Toaster } from "~/shadcn/ui/sonner";
 
 const robotoSlabHeading = Roboto_Slab({
     subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
                 >
                     <TooltipProvider>
                         {children}
+                        <Toaster />
                     </TooltipProvider>
                 </ThemeProvider>
             </body>

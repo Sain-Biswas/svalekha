@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
+import { openAPI } from "better-auth/plugins";
 
 import { database } from "~/server/database/index.database";
 import { userSchema, accountSchema, sessionSchema, verificationSchema } from "~/server/database/schema.database";
@@ -23,11 +24,13 @@ export const auth = betterAuth(
         ),
 
         emailAndPassword: {
-            enabled: true
+            enabled: true,
+            autoSignIn: true
         },
 
         plugins: [
-            nextCookies()
+            nextCookies(),
+            openAPI()
         ]
     }
 );
