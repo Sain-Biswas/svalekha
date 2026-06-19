@@ -10,10 +10,9 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
-    "@hugeicons/core-free-icons": "^4.2.0",
-    "@hugeicons/react": "^1.1.7",
     "@libsql/client": "^0.17.4",
     "@t3-oss/env-nextjs": "^0.13.11",
+    "@tabler/icons-react": "^3.44.0",
     "better-auth": "^1.6.19",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

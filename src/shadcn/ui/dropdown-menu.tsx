@@ -4,8 +4,7 @@ import * as React from "react";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
 
 import { cn } from "~/lib/utils";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowRight01Icon, Tick02Icon } from "@hugeicons/core-free-icons";
+import { IconChevronRight, IconCheck } from "@tabler/icons-react";
 
 function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
     return <MenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
@@ -120,7 +119,7 @@ function DropdownMenuSubTrigger({
             {...props}
         >
             {children}
-            <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} className="rtl:rotate-180 ms-auto" />
+            <IconChevronRight className="rtl:rotate-180 ms-auto" />
         </MenuPrimitive.SubmenuTrigger>
     );
 }
@@ -167,11 +166,11 @@ function DropdownMenuCheckboxItem({
             {...props}
         >
             <span
-                className="pointer-events-none absolute inset-e-2 flex items-center justify-center"
+                className="pointer-events-none absolute end-2 flex items-center justify-center"
                 data-slot="dropdown-menu-checkbox-item-indicator"
             >
                 <MenuPrimitive.CheckboxItemIndicator>
-                    <HugeiconsIcon icon={Tick02Icon} strokeWidth={2} />
+                    <IconCheck />
                 </MenuPrimitive.CheckboxItemIndicator>
             </span>
             {children}
@@ -207,11 +206,11 @@ function DropdownMenuRadioItem({
             {...props}
         >
             <span
-                className="pointer-events-none absolute inset-e-2 flex items-center justify-center"
+                className="pointer-events-none absolute end-2 flex items-center justify-center"
                 data-slot="dropdown-menu-radio-item-indicator"
             >
                 <MenuPrimitive.RadioItemIndicator>
-                    <HugeiconsIcon icon={Tick02Icon} strokeWidth={2} />
+                    <IconCheck />
                 </MenuPrimitive.RadioItemIndicator>
             </span>
             {children}

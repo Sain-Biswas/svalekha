@@ -1,10 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
   "style": "base-sera",
-
   "rsc": true,
   "tsx": true,
-
   "tailwind": {
     "config": "",
     "css": "src/app/globals.css",
@@ -12,10 +10,8 @@
     "cssVariables": true,
     "prefix": ""
   },
-
-  "iconLibrary": "hugeicons",
+  "iconLibrary": "tabler",
   "rtl": true,
-
   "aliases": {
     "components": "~/shadcn",
     "utils": "~/lib/utils",
@@ -23,9 +19,7 @@
     "lib": "~/lib",
     "hooks": "~/shadcn/hooks"
   },
-
   "menuColor": "default-translucent",
   "menuAccent": "subtle",
-
   "registries": {}
 }

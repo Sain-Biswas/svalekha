@@ -10,6 +10,7 @@
     "mtsx",
     "subsecond",
     "svalekha",
+    "tabler",
     "स्वलेखा"
   ],
   "js/ts.tsdk.path": "node_modules/typescript/lib"
