@@ -3,6 +3,7 @@ import { Geist_Mono, Inter, Roboto_Slab } from "next/font/google";
 import { cn } from "~/lib/utils";
 import "./globals.css";
 import { ThemeProvider } from "~/integrations/themes/theme-provider";
+import { TooltipProvider } from "~/shadcn/ui/tooltip";
 
 const robotoSlabHeading = Roboto_Slab({
     subsets: ["latin"],
@@ -42,7 +43,9 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    {children}
+                    <TooltipProvider>
+                        {children}
+                    </TooltipProvider>
                 </ThemeProvider>
             </body>
         </html>
