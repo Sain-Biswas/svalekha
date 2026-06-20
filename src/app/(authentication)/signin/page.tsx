@@ -21,7 +21,6 @@ export default async function SigninPage({}: PageProps<"/signin">) {
             <CardContent>
                 <SigninForm />
             </CardContent>
-
         </>
     );
 }

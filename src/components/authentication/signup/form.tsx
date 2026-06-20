@@ -1,24 +1,24 @@
 "use client";
 
-import { IconAt, IconExclamationCircleFilled, IconEye, IconEyeClosed, IconLockPassword } from "@tabler/icons-react";
-import { initialFormState, mergeForm, useForm, useTransform } from "@tanstack/react-form-nextjs";
 import { useActionState, useState } from "react";
-import { Alert, AlertTitle } from "~/shadcn/ui/alert";
-import { Button } from "~/shadcn/ui/button";
+import { signupFormAction } from "./action";
+import { initialFormState, mergeForm, useForm, useTransform } from "@tanstack/react-form-nextjs";
+import { signupFormOptions } from "./shared-code";
 import { Field, FieldError, FieldGroup, FieldLabel } from "~/shadcn/ui/field";
+import { Alert, AlertTitle } from "~/shadcn/ui/alert";
+import { IconAt, IconExclamationCircleFilled, IconEye, IconEyeClosed, IconLockPassword, IconSignature } from "@tabler/icons-react";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "~/shadcn/ui/input-group";
+import { Button } from "~/shadcn/ui/button";
 import { Spinner } from "~/shadcn/ui/spinner";
-import { signinFormAction } from "./action";
-import { signinFormOptions } from "./shared-code";
 
-export function SigninForm() {
-    const [state, action] = useActionState(signinFormAction, initialFormState);
+export function SignupForm() {
+    const [state, action] = useActionState(signupFormAction, initialFormState);
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
     const form = useForm({
-        ...signinFormOptions,
-        transform: useTransform((baseForm) => mergeForm(baseForm, state!), [state])
+        ...signupFormOptions,
+        transform: useTransform((baseForm) => mergeForm(baseForm, state), [state])
     });
 
     return (
@@ -36,6 +36,29 @@ export function SigninForm() {
                             : null
                     }
                 </form.Subscribe>
+
+                <form.Field name="name">
+                    {
+                        (field) => {
+                            const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
+
+                            return (
+                                <Field data-invalid={isInvalid}>
+                                    <FieldLabel htmlFor={field.name}>name</FieldLabel>
+                                    <InputGroup>
+                                        <InputGroupInput id={field.name} name={field.name} value={field.state.value} onBlur={field.handleBlur} onChange={(e) => field.handleChange(e.target.value)} aria-invalid={isInvalid} placeholder="Someone's Name" autoComplete="off" />
+                                        <InputGroupAddon>
+                                            <IconSignature />
+                                        </InputGroupAddon>
+                                    </InputGroup>
+                                    {
+                                        isInvalid && <FieldError errors={field.state.meta.errors} />
+                                    }
+                                </Field>
+                            );
+                        }
+                    }
+                </form.Field>
 
                 <form.Field
                     name="email"

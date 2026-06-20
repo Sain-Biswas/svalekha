@@ -16,8 +16,5 @@ export default {
         authToken: process.env.TURSO_AUTH_TOKEN
     },
 
-    tablesFilter: ["svalekha_*"],
-
-    verbose: true,
-    strict: true
+    tablesFilter: ["svalekha_*"]
 } satisfies Config;

@@ -2,28 +2,28 @@
 
 import "server-only";
 
-import { ServerValidateError, createServerValidate } from "@tanstack/react-form-nextjs";
-import { APIError } from "better-auth";
+import { createServerValidate, ServerValidateError } from "@tanstack/react-form-nextjs";
+import { signupFormOptions, signupFormSchema } from "./shared-code";
+import { auth } from "~/server/authentication/index.auth";
 import { headers } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
-import { signinFormOptions, signinFormSchema } from "~/components/authentication/signin/shared-code";
-import { auth } from "~/server/authentication/index.auth";
+import { APIError } from "better-auth";
 
 const serverValidate = createServerValidate({
-    ...signinFormOptions,
+    ...signupFormOptions,
 
-    onServerValidate: signinFormSchema
+    onServerValidate: signupFormSchema
 });
 
-export async function signinFormAction(_prev: unknown, formData: FormData) {
+export async function signupFormAction(_prev: unknown, formData: FormData) {
     try {
         const value = await serverValidate(formData);
 
-        await auth.api.signInEmail({
+        await auth.api.signUpEmail({
             body: {
+                name: value.name,
                 email: value.email,
-                password: value.password,
-                rememberMe: true
+                password: value.password
             },
             headers: await headers()
         });
