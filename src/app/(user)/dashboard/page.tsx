@@ -1,3 +1,5 @@
+import "server-only";
+
 import { getSession } from "~/server/authentication/lib.auth";
 
 export default async function DashboardPage({}: PageProps<"/dashboard">) {

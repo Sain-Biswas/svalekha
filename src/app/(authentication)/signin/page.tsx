@@ -1,3 +1,5 @@
+import "server-only";
+
 import { IconReportMoneyFilled } from "@tabler/icons-react";
 import Link from "next/link";
 import { SigninForm } from "~/components/authentication/signin/form";

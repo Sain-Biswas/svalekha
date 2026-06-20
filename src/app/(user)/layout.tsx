@@ -1,3 +1,5 @@
+import "server-only";
+
 import { redirect, RedirectType } from "next/navigation";
 import { ReactNode, Suspense } from "react";
 import { getSession } from "~/server/authentication/lib.auth";

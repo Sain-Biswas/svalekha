@@ -1,7 +1,11 @@
+import "server-only";
+
 import type { Metadata } from "next";
 import { Geist_Mono, Inter, Roboto_Slab } from "next/font/google";
-import { cn } from "~/lib/utils";
+
 import "./globals.css";
+
+import { cn } from "~/lib/utils";
 import { ThemeProvider } from "~/integrations/themes/theme-provider";
 import { TooltipProvider } from "~/shadcn/ui/tooltip";
 import { Toaster } from "~/shadcn/ui/sonner";

@@ -1,3 +1,5 @@
+import "server-only";
+
 import Image from "next/image";
 import { ModeToggleDropdown } from "~/integrations/themes/mode-toggle-dropdown";
 import { Button } from "~/shadcn/ui/button";

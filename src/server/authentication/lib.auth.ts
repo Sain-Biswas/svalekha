@@ -1,5 +1,7 @@
 "use server";
 
+import "server-only";
+
 import { auth } from "~/server/authentication/index.auth";
 
 import { headers } from "next/headers";
