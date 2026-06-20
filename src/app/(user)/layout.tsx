@@ -3,18 +3,30 @@ import "server-only";
 import { redirect, RedirectType } from "next/navigation";
 import { ReactNode, Suspense } from "react";
 import { getSession } from "~/server/authentication/lib.auth";
+import { SidebarInset, SidebarProvider } from "~/shadcn/ui/sidebar";
+import { MainSidebar } from "~/components/user-sidebar/main-sidebar";
 
 export default function UserLayout({
     children
 }: LayoutProps<"/">) {
     return (
-        <main className="min-h-screen">
-            <Suspense fallback={<div>Loading User Layout</div>}>
-                <AuthWrapper>
-                    {children}
-                </AuthWrapper>
-            </Suspense>
-        </main>
+        <SidebarProvider
+            style={
+                {
+                    "--sidebar-width": "20rem",
+                    "--sidebar-width-mobile": "20rem"
+                } as React.CSSProperties
+            }
+        >
+            <MainSidebar />
+            <SidebarInset>
+                <Suspense fallback={<div>Loading User Layout</div>}>
+                    <AuthWrapper>
+                        {children}
+                    </AuthWrapper>
+                </Suspense>
+            </SidebarInset>
+        </SidebarProvider>
     );
 }
 
