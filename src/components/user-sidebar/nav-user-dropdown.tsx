@@ -11,6 +11,7 @@ import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "~/s
 import { Skeleton } from "~/shadcn/ui/skeleton";
 import { signoutUser } from "./signout";
 import { toast } from "sonner";
+import Link from "next/link";
 
 export function NavUserDropdown() {
     const { isMobile } = useSidebar();
@@ -65,7 +66,7 @@ export function NavUserDropdown() {
                                     size="lg"
                                     className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                                 >
-                                    <Avatar className="size-8" size="lg">
+                                    <Avatar size="default">
                                         <AvatarImage src={data.user.image || undefined} alt={data.user.name} />
                                         <AvatarFallback>{data.user.name.charAt(0).toUpperCase()}</AvatarFallback>
                                     </Avatar>
@@ -100,10 +101,12 @@ export function NavUserDropdown() {
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup>
-                            <DropdownMenuItem>
-                                <IconRosetteDiscountCheckFilled />
-                                Account
-                            </DropdownMenuItem>
+                            <Link href="/account">
+                                <DropdownMenuItem>
+                                    <IconRosetteDiscountCheckFilled />
+                                    Account
+                                </DropdownMenuItem>
+                            </Link>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem
