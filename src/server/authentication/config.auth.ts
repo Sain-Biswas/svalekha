@@ -25,6 +25,10 @@ export const auth = betterAuth(
             }
         ),
 
+        session: {
+            deferSessionRefresh: true
+        },
+
         emailAndPassword: {
             enabled: true,
             autoSignIn: true

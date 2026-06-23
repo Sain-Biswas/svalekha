@@ -1,5 +1,6 @@
 import { getSession } from "~/server/authentication/lib.auth";
 import { AccountHeader } from "./header";
+import { SessionManager } from "~/components/account/session-manager";
 
 export default async function AccountPage() {
     const { session, user } = (await getSession())!;
@@ -17,10 +18,12 @@ export default async function AccountPage() {
 
                 <div>
                     <h1 className="uppercase font-heading text-lg font-bold underline">Current Session</h1>
-                    <pre className="overflow-auto font-mono rounded-md p-4 text-sm">
+                    <pre className="overflow-auto font-mono rounded-md p-4 text-sm text-wrap">
                         {JSON.stringify(session, null, 2)}
                     </pre>
                 </div>
+
+                <SessionManager currentSession={session.token} />
             </main>
         </>
     );
