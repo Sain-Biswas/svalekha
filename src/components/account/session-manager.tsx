@@ -8,25 +8,21 @@ import { Button } from "~/shadcn/ui/button";
 import { Item, ItemActions, ItemContent, ItemDescription, ItemFooter, ItemGroup, ItemHeader, ItemTitle } from "~/shadcn/ui/item";
 import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "~/shadcn/ui/empty";
 import { IconDeviceDesktopFilled } from "@tabler/icons-react";
+import { Badge } from "~/shadcn/ui/badge";
 
 export async function SessionManager({ currentSession }: { currentSession: string }) {
     const sessions = (await auth.api.listSessions({ headers: await headers() })).filter((session) => session.token !== currentSession);
 
     return (
-        <section className="flex flex-col gap-4">
-            <div className="flex justify-between items-center">
+        <section id="account-session-manager" className="flex flex-col gap-4">
+            <div className="flex justify-between items-center flex-wrap gap-3">
                 <h1 className="font-heading font-bold uppercase text-lg">
                     Active Sessions
-                    {" "}
-                    <span className="text-destructive">
-                        (
-                        {" "}
+                    <Badge variant="destructive" className="ml-2">
                         {sessions.length.toString()}
-                        {" "}
-                        )
-                    </span>
+                    </Badge>
                 </h1>
-                <Button className="text-wrap" variant="destructive" size="lg">
+                <Button className="text-wrap ml-auto" variant="destructive" size="lg">
                     Revoke all other sessions
                 </Button>
             </div>
