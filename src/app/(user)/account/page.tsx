@@ -1,3 +1,5 @@
+import "server-only";
+
 import { getSession } from "~/server/authentication/lib.auth";
 import { AccountHeader } from "./header";
 import { SessionManager } from "~/components/account/session-manager";

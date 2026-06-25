@@ -1,3 +1,5 @@
+import "server-only";
+
 import { getSession } from "~/server/authentication/lib.auth";
 import { DashboardHeader } from "./header";
 

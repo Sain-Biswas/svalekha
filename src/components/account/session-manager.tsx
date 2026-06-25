@@ -1,7 +1,7 @@
 import "server-only";
 
+import { formatRelative } from "date-fns";
 import { headers } from "next/headers";
-import { formatRelative, subDays } from "date-fns";
 
 import { auth } from "~/server/authentication/index.auth";
 import { Button } from "~/shadcn/ui/button";
