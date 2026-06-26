@@ -12,6 +12,9 @@ export const serverEnv = createEnv({
 		TURSO_DATABASE_URL: z.string(),
 		TURSO_AUTH_TOKEN: z.string(),
 
+		BETTER_AUTH_SECRET: z.string(),
+		BETTER_AUTH_URL: z.url(),
+
 		NODE_ENV: z
 			.enum(["development", "test", "production"])
 			.default("development")
@@ -23,6 +26,9 @@ export const serverEnv = createEnv({
 	runtimeEnv: {
 		TURSO_DATABASE_URL: process.env["TURSO_DATABASE_URL"],
 		TURSO_AUTH_TOKEN: process.env["TURSO_AUTH_TOKEN"],
+
+		BETTER_AUTH_SECRET: process.env["BETTER_AUTH_SECRET"],
+		BETTER_AUTH_URL: process.env["BETTER_AUTH_URL"],
 
 		NODE_ENV: process.env.NODE_ENV
 	},

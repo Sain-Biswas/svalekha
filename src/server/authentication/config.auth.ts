@@ -12,9 +12,13 @@ import {
 	sessionSchema,
 	verificationSchema
 } from "~/server/database/schema.database";
+import { serverEnv } from "~/constants/env/server.env";
 
 export const auth = betterAuth({
 	appName: "svaLekha",
+
+	secret: serverEnv.BETTER_AUTH_SECRET,
+	baseURL: serverEnv.BETTER_AUTH_URL,
 
 	database: drizzleAdapter(database, {
 		provider: "sqlite",
