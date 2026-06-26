@@ -1,20 +1,20 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always"
-  },
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "always"
+	},
 
-  "cSpell.words": [
-    "Couldn",
-    "hugeicons",
-    "Lekha",
-    "mjsx",
-    "mtsx",
-    "nums",
-    "subsecond",
-    "svalekha",
-    "tabler",
-    "vaul",
-    "स्वलेखा"
-  ],
-  "js/ts.tsdk.path": "node_modules/typescript/lib"
+	"cSpell.words": [
+		"Couldn",
+		"hugeicons",
+		"Lekha",
+		"mjsx",
+		"mtsx",
+		"nums",
+		"subsecond",
+		"svalekha",
+		"tabler",
+		"vaul",
+		"स्वलेखा"
+	],
+	"js/ts.tsdk.path": "node_modules/typescript/lib"
 }

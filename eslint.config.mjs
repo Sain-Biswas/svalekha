@@ -1,7 +1,6 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 
 import prettier from "eslint-config-prettier/flat";
-import stylistic from "@stylistic/eslint-plugin";
 import { importX } from "eslint-plugin-import-x";
 import markdown from "@eslint/markdown";
 import json from "@eslint/json";
@@ -11,100 +10,88 @@ import nextTypeScript from "eslint-config-next/typescript";
 import tsParser from "@typescript-eslint/parser";
 
 const eslintConfig = defineConfig([
+	/* next js eslint plugin rules */
+	...coreWebVitals,
+	...nextTypeScript,
 
-    /* next js eslint plugin rules */
-    ...coreWebVitals,
-    ...nextTypeScript,
+	/* prettier support - avoids conflicts */
+	prettier,
 
-    /* prettier support - avoids conflicts */
-    prettier,
+	/* typescript file linting */
+	importX.configs["flat/recommended"],
+	importX.configs["flat/typescript"],
+	importX.configs["flat/react"],
 
-    /* code style rules */
-    stylistic.configs.customize({
-        indent: 4,
-        semi: true,
-        quotes: "double",
-        arrowParens: true,
-        commaDangle: "never",
-        quoteProps: "as-needed"
-    }),
+	{
+		files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,mts,cts,tsx,mtsx}"],
 
-    /* typescript file linting */
-    importX.configs["flat/recommended"],
-    importX.configs["flat/typescript"],
-    importX.configs["flat/react"],
+		languageOptions: {
+			parser: tsParser,
+			ecmaVersion: "latest",
+			sourceType: "module"
+		},
 
-    {
-        files: ["**/*.{js,mjs,cjs,jsx,mjsx,ts,mts,cts,tsx,mtsx}"],
+		rules: {
+			"import/consistent-type-specifier-style": [
+				"error",
+				"prefer-top-level"
+			],
+			"import/first": "error",
+			"import/newline-after-import": "error",
+			"import/no-commonjs": "error",
+			"import/no-duplicates": "error"
+		}
+	},
 
-        languageOptions: {
-            parser: tsParser,
-            ecmaVersion: "latest",
-            sourceType: "module"
-        },
+	/* json file linting */
+	{
+		files: ["**/*.json"],
 
-        rules: {
-            "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
-            "import/first": "error",
-            "import/newline-after-import": "error",
-            "import/no-commonjs": "error",
-            "import/no-duplicates": "error",
+		plugins: {
+			json
+		},
 
-            "@stylistic/newline-per-chained-call": ["error", { ignoreChainWithDepth: 2 }]
-        }
+		language: "json/jsonc",
 
-    },
+		languageOptions: {
+			allowTrailingCommas: false
+		},
 
-    /* json file linting */
-    {
-        files: ["**/*.json"],
+		extends: ["json/recommended"]
+	},
 
-        plugins: {
-            json
-        },
+	/* markdown file linting */
+	{
+		files: ["**/*.md"],
 
-        language: "json/jsonc",
+		plugins: {
+			markdown
+		},
 
-        languageOptions: {
-            allowTrailingCommas: false
-        },
+		language: "markdown/gfm",
 
-        extends: ["json/recommended"]
-    },
+		extends: ["markdown/recommended"],
 
-    /* markdown file linting */
-    {
-        files: ["**/*.md"],
+		rules: {
+			"markdown/no-html": "error"
+		}
+	},
 
-        plugins: {
-            markdown
-        },
+	/* set react version manually */
+	{
+		settings: {
+			react: { version: "19" } // avoids auto-detection crash (ESLint 10+)
+		}
+	},
 
-        language: "markdown/gfm",
-
-        extends: ["markdown/recommended"],
-
-        rules: {
-            "markdown/no-html": "error"
-        }
-    },
-
-    /* set react version manually */
-    {
-        settings: {
-            react: { version: "19" } // avoids auto-detection crash (ESLint 10+)
-        }
-    },
-
-    /* create a global ignore list which will not be linted */
-    globalIgnores([
-        ".next/**",
-        "out/**",
-        "build/**",
-        "next-env.d.ts",
-        "node_modules"
-    ])
-
+	/* create a global ignore list which will not be linted */
+	globalIgnores([
+		".next/**",
+		"out/**",
+		"build/**",
+		"next-env.d.ts",
+		"node_modules"
+	])
 ]);
 
 export default eslintConfig;
