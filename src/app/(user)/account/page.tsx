@@ -18,8 +18,8 @@ export default async function AccountPage() {
             <AccountHeader />
             <hr />
             <main className="p-4 @container">
-                <section id="account-user-information" className="mb-4 flex gap-5">
-                    <div>
+                <section id="account-user-information" className="mb-8 flex flex-col @4xl:flex-row gap-5">
+                    <div className="flex justify-center">
                         <Avatar className="size-32">
                             <AvatarImage src={user.image || undefined} alt={user.name} />
                             <AvatarFallback className="size-32 text-6xl">
@@ -27,9 +27,9 @@ export default async function AccountPage() {
                             </AvatarFallback>
                         </Avatar>
                     </div>
-                    <div className="pt-5">
+                    <div className="pt-5 @4xl:text-left text-center">
                         <p className="font-heading text-xl font-bold tracking-wider uppercase">{user.name}</p>
-                        <div className="flex gap-3 flex-wrap items-center">
+                        <div className="flex gap-3 justify-center flex-wrap items-center">
                             <p className="lowercase">{user.email}</p>
                             {
                                 user.emailVerified
@@ -58,7 +58,7 @@ export default async function AccountPage() {
                             {formatDate(user.updatedAt, "PPPP")}
                         </p>
                     </div>
-                    <div className="ml-auto flex flex-col justify-between">
+                    <div className="@4xl:ml-auto flex justify-center @4xl:flex-col @4xl:justify-between">
                         <Button variant="secondary">
                             <IconUserEdit stroke={2} />
                             Edit
