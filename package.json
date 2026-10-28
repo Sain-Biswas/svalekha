@@ -1,0 +1,22 @@
+{
+  "name": "svalekha",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "A privacy-focused personal finance and expense tracking platform for recording expenses, managing budgets, organizing transactions with categories and tags, and gaining insights into spending habits.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Sain-Biswas",
+    "url": "https://github.com/Sain-Biswas/svalekha.git"
+  },
+  "license": "GPL-3.0-only",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.16.1",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.16.1"
+}
